@@ -29,12 +29,12 @@ Connect MSF receiver module signal output to PICO GPIO15
 LCD I2C connects to PICO GPIO0 (SDA) and GPIO1 (SCK)
 
 # BOOT SEQUENCE
-1: wait for initial Minute Marker
+1: Wait for initial Minute Marker
 ![Alt text](https://github.com/jpatkinson-rpi/pico_msf_rtc_lcd_clock/blob/main/images/prototype-wait.jpg?raw=true "Wait for sync")
 
-2: receive MSF data and decode for minute period
+2: Receiving MSF data for minute period
 ![Alt text](https://github.com/jpatkinson-rpi/pico_msf_rtc_lcd_clock/blob/main/images/prototype-receive.jpg?raw=true "Receiving MSF data")
 
-3: Decoded MSF data and displaying Date/Time
-![Alt text](https://github.com/jpatkinson-rpi/pico_msf_rtc_lcd_clock/blob/main/images/prototype-wait.jpg?raw=true "Date/Time decoded")
+3: Decoded valid MSF data and display Date/Time
+![Alt text](https://github.com/jpatkinson-rpi/pico_msf_rtc_lcd_clock/blob/main/images/prototype-time.jpg?raw=true "Date/Time decoded")
 

@@ -323,11 +323,13 @@ def main_loop():
 
         # update display time
         lcd.move_to( 0, 0 )
-        lcd.putstr( "{:>02d}/{:>02d}/{:>02d} ".format(year, month, dayofmonth) )
         lcd.putstr( daysofweek[dayofweek] )
-                
+        lcd.putstr( " {:>02d} ".format(dayofmonth) )
+        lcd.putstr( months[month] )
+        lcd.putstr( " {:>04d} ".format( (year+2000) ) )
+
         lcd.move_to( 0, 1 )
-        lcd.putstr( "{:>02d}:{:>02d}:00 ".format(hour, minute) )
+        lcd.putstr( " {:>02d}:{:>02d}:00  ".format(hour, minute) )
         lcd.putstr( timezone[dst] )
 
         minute_marker = False
@@ -346,14 +348,14 @@ def main_loop():
                 lcd.move_to( 0, 0 )
                 lcd.putstr( "Receiving..." )
                 lcd.move_to( 0, 1 )
-                lcd.putstr( "{:>02d}:{:>02d}:{:>02d} ".format(hour, minute, seconds_count) )
+                lcd.putstr( " {:>02d}:{:>02d}:{:>02d} ".format(hour, minute, seconds_count) )
                 sync_state = SYNC_STATE_OK
                 last_seconds_count = seconds_count
                 
         elif sync_state == SYNC_STATE_OK:
             if seconds_count != last_seconds_count:
                 # update seconds every second
-                lcd.move_to( 6, 1 )
+                lcd.move_to( 7, 1 )
                 lcd.putstr( "{:>02d} ".format(seconds_count) )
                 last_seconds_count = seconds_count
 
